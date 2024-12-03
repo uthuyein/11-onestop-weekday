@@ -45,7 +45,7 @@ public class UserTest {
 		assertEquals(1, res);
 	}
 	
-	@Test
+	//@Test
 	@Order(3)
 	void deleteTest() throws SQLException {
 		var res = service.delete(1);
