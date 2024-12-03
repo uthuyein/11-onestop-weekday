@@ -46,7 +46,7 @@ public class UserService {
 		return res;
 	}
 
-	public List<User> select(String name, String password, LocalDateTime from, LocalDateTime to) throws SQLException {
+	public List<User> search(String name, String password, LocalDateTime from, LocalDateTime to) throws SQLException {
 		StringBuilder sb = new StringBuilder("select * from user_tbl where 1=1");
 		List<Object> temp = new ArrayList<>();
 		List<User> users = new ArrayList<User>();
@@ -99,7 +99,7 @@ public class UserService {
 		return null;
 	}
 
-	public void resetUserTable() throws SQLException {
+	public void reset() throws SQLException {
 		try {		
 			con = getConnection();
 			var stmt = con.createStatement();
@@ -116,9 +116,9 @@ public class UserService {
 
 	private void closeConnection() throws SQLException {
 		
-		if(stmt != null && !stmt.isClosed()) {
-			stmt.close();
-		}
+//		if(stmt != null && !stmt.isClosed()) {
+//			stmt.close();
+//		}
 		if (null != con && !con.isClosed()) {
 			con.close();
 		}

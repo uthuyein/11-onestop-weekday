@@ -22,18 +22,16 @@ public class UserTest {
 
 	private static UserService service;
 	
-	@BeforeAll
-	
+	@BeforeAll	
 	static void init() throws SQLException {
 		service = new UserService();
-		service.resetUserTable();
+		service.reset();
 	}
-	
-	
+		
 	@Test
 	@Order(1)
 	void saveTest() throws SQLException {		
-		var res =  service.insert(new User(1,"User", "User", null));
+		var res =  service.insert(new User("User", "User", null));
 		assertNotNull(res);
 		assertTrue(res > 0);
 		assertFalse(res < 0);
