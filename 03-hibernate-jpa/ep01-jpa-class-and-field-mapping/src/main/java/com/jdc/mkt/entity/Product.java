@@ -6,13 +6,20 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.TableGenerator;
 
 @Entity
 @Check(constraints = "dtPrice >= wsPrice")
+@Table(name = "product_tbl")
 public class Product {
 
 	@Id
+	@GeneratedValue(generator = "product_gen_tbl")
+	@TableGenerator(name = "product_gen_tbl",initialValue = 1,allocationSize = 1)
 	private int id;
 	@Column(nullable = false)
 	private String name;
