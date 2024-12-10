@@ -15,8 +15,8 @@ public class Admin {
 	@Column(nullable = false,length = 45)
 	private String name;
 	
-	@Embedded
-	private Account account;
+//	@Embedded
+//	private Account account;
 	
 	public int getId() {
 		return id;
@@ -30,12 +30,12 @@ public class Admin {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Account getAccount() {
-		return account;
-	}
-	public void setAccount(Account account) {
-		this.account = account;
-	}
-	
+//	public Account getAccount() {
+//		return account;
+//	}
+//	public void setAccount(Account account) {
+//		this.account = account;
+//	}
+//	
 	
 }

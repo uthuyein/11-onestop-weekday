@@ -1,5 +1,7 @@
 package com.jdc.mkt.entity;
 
+import org.hibernate.annotations.Check;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -30,6 +32,7 @@ public class Contact {
 	@Column(length = 12,unique = true,columnDefinition = "varchar(12) check (char_length(secondaryContact) <= 12)")
 	private String secondaryContact;
 	
+	@Check(constraints = "email REGEXP '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$'")
 	@Column(nullable = false,length = 45,table = "webAddress_tbl")
 	private String email;
 	
