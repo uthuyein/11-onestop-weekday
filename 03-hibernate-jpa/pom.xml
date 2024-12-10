@@ -43,5 +43,6 @@
 	</build>
 	<modules>
 		<module>ep01-jpa-class-and-field-mapping</module>
+		<module>ep02-jpa-relations-mapping</module>
 	</modules>
 </project>
