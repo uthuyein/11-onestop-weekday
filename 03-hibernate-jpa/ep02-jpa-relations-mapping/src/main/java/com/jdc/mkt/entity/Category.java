@@ -27,7 +27,10 @@ public class Category {
 	@Column(columnDefinition = "tinyint(1) not null default 1")
 	private boolean activated;
 	private LocalDate createDate;
-	@OneToMany
+	
+	// it will create foreign key on product_tbl table
+	//@JoinColumn(name = "cat_id")
+	@OneToMany(mappedBy = "catgory")
 	private List<Product> products;
 }
 

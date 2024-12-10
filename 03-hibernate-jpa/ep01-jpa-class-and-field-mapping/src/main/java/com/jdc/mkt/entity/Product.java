@@ -11,10 +11,14 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.TableGenerator;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Check(constraints = "dtPrice >= wsPrice")
 @Table(name = "product_tbl")
+@Getter 
+@Setter
 public class Product {
 
 	@Id
@@ -35,55 +39,7 @@ public class Product {
 	}
 
 
-	public int getId() {
-		return id;
-	}
-
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-
-	public String getName() {
-		return name;
-	}
-
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-
 	
-	public Size getSize() {
-		return size;
-	}
-
-
-	public void setSize(Size size) {
-		this.size = size;
-	}
-
-
-	public double getDtPrice() {
-		return dtPrice;
-	}
-
-
-	public void setDtPrice(double dtPrice) {
-		this.dtPrice = dtPrice;
-	}
-
-
-	public double getWsPrice() {
-		return wsPrice;
-	}
-
-
-	public void setWsPrice(double wsPrice) {
-		this.wsPrice = wsPrice;
-	}
 	
 	
 }

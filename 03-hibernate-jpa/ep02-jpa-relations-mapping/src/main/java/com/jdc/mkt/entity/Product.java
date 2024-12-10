@@ -1,6 +1,7 @@
 package com.jdc.mkt.entity;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import org.hibernate.annotations.Check;
 
@@ -9,6 +10,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -34,8 +37,20 @@ public class Product {
 	
 	private LocalDate createDate;
 	// onetoone or manytoone 
-	//@ManyToOne
-	//private Category catgory;
+//	
+//	@JoinTable(name = "product_category_tbl",
+//	joinColumns = {
+//			@JoinColumn(name = "prod_id")
+//	},
+//	inverseJoinColumns = {
+//			@JoinColumn(name = "cat_id")
+//	}
+//			)
+	@ManyToOne
+	private Category catgory;
+	
+	@ManyToMany(mappedBy = "products")
+	private List<Voucher> vouchers;
 }
 
 
