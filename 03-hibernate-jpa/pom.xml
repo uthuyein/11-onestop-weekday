@@ -44,5 +44,6 @@
 	<modules>
 		<module>ep01-jpa-class-and-field-mapping</module>
 		<module>ep02-jpa-relations-mapping</module>
+		<module>ep03-jpa-inheritance-mapping</module>
 	</modules>
 </project>

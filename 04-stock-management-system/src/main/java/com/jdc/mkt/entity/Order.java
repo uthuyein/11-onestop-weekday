@@ -2,6 +2,8 @@ package com.jdc.mkt.entity;
 
 import java.time.LocalDate;
 
+import org.hibernate.annotations.ColumnDefault;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,6 +24,7 @@ public class Order {
 	private int id;
 	
 	private LocalDate orderDate;
+	
 	private String description;
 	
 	@ManyToOne
