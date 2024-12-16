@@ -2,16 +2,13 @@ package com.jdc.mkt.test;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestMethodOrder;
 
 import com.jdc.mkt.entity.Address;
 import com.jdc.mkt.entity.Contact;
 import com.jdc.mkt.entity.Customer;
 
-@TestMethodOrder(OrderAnnotation.class)
 public class CustomerTest extends JpaEntityManagerFactory {
 	
 	@Test
