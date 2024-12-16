@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.hibernate.annotations.ColumnDefault;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -35,18 +36,22 @@ public class Category {
 	@ColumnDefault("1")
 	private  boolean isActivated;
 	
-	@OneToMany(mappedBy = "category")
+	@OneToMany(mappedBy = "category",cascade = {CascadeType.PERSIST,CascadeType.REMOVE},orphanRemoval = true)
 	private List<Product> products ;
 	
 	{
 		products = new ArrayList<Product>();  
 	}
 	
-		
+	public void removeProduct(int index) {
+		products.remove(index);
+	}
 	public void addProduct(Product p) {
 		p.setCategory(this);
 		products.add(p);
-	}	
+	}
+	
+	
 }
 
 
