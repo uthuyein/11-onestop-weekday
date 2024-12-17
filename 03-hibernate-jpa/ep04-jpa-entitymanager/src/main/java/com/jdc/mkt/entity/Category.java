@@ -5,9 +5,15 @@ import java.util.List;
 
 import org.hibernate.annotations.ColumnDefault;
 
+import com.jdc.mkt.listeners.EnableTimesListener;
+import com.jdc.mkt.listeners.Times;
+import com.jdc.mkt.listeners.TimesListener;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EntityListeners;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -25,7 +31,8 @@ import lombok.Setter;
 @NoArgsConstructor
 @RequiredArgsConstructor
 @Table(name = "category_tbl")
-public class Category {
+@EntityListeners(TimesListener.class)
+public class Category implements EnableTimesListener{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,11 +42,14 @@ public class Category {
 	@Column(nullable = false,unique = true)
 	private  String name;
 	
+	@Embedded
+	private Times times;
+	
 	@ColumnDefault("1")
 	@Column(nullable = false,columnDefinition = "tinyint(1)")
 	private  Boolean isActivated = true;
 	
-	@OneToMany(mappedBy = "category",cascade = {CascadeType.PERSIST,CascadeType.REMOVE},orphanRemoval = true)
+	@OneToMany(mappedBy = "category",cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REMOVE},orphanRemoval = true)
 	private List<Product> products ;
 	
 	{

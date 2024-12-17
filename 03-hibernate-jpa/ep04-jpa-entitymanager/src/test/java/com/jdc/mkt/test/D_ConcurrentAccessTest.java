@@ -9,12 +9,7 @@ public class D_ConcurrentAccessTest extends JpaEntityManagerFactory {
 	
 	@Test
 	void updateTest() throws InterruptedException {
-//		var acc = new Account("su su", 30000.0);
-//		var em = emf.createEntityManager();
-//		em.getTransaction().begin();
-//		em.persist(acc);
-//		em.getTransaction().commit();
-//		
+
 		var first = firstUpdate();
 		var second = secondUpdate();
 		first.start();
