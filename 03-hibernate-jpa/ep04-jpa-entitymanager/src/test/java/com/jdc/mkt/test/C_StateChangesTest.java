@@ -14,7 +14,7 @@ import com.jdc.mkt.entity.Category;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceException;
 
-public class StateChangesTest extends JpaEntityManagerFactory{
+public class C_StateChangesTest extends JpaEntityManagerFactory{
 
 	private EntityManager em;
 	

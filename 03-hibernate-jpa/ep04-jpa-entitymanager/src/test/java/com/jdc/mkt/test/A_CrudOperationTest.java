@@ -9,7 +9,7 @@ import com.jdc.mkt.entity.Address;
 import com.jdc.mkt.entity.Contact;
 import com.jdc.mkt.entity.Customer;
 
-public class CrudOperationTest extends JpaEntityManagerFactory {
+public class A_CrudOperationTest extends JpaEntityManagerFactory {
 	
 	@Test
 	@Order(4)

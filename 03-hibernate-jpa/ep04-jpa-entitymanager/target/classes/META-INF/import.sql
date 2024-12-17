@@ -11,3 +11,5 @@ insert into product_tbl(name,price,category_id) values ('Chicken wings',3500,2);
 insert into product_tbl(name,price,category_id) values ('Beef',5000,2);
 insert into product_tbl(name,price,category_id) values ('Pork bacon',5000,2);
 
+insert into account_tbl(name,balance)values ('Aung Aung',20000);
+

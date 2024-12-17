@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import com.jdc.mkt.entity.Category;
 import com.jdc.mkt.entity.Product;
 
-public class RemoveOperationTest extends JpaEntityManagerFactory{
+public class B_RemoveOperationTest extends JpaEntityManagerFactory{
 
 	
 	@Test
