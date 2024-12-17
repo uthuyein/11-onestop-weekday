@@ -2,12 +2,14 @@ package com.jdc.mkt.entity;
 
 import org.hibernate.annotations.ColumnDefault;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
@@ -19,6 +21,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @RequiredArgsConstructor
+@Table(name = "product_tbl")
 public class Product {
 
 	@Id
@@ -30,11 +33,13 @@ public class Product {
 	private String name;
 	
 	@NonNull
+	@Column(nullable = false)
 	private Integer price;
 	
 	@ColumnDefault("1")
-	private boolean isActivated;
+	@Column(nullable =  false,columnDefinition = "tinyint(1) ")
+	private boolean isActivated = true;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.PERSIST)
 	private Category category;
 }

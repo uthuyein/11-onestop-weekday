@@ -9,7 +9,7 @@ import com.jdc.mkt.entity.Address;
 import com.jdc.mkt.entity.Contact;
 import com.jdc.mkt.entity.Customer;
 
-public class CustomerTest extends JpaEntityManagerFactory {
+public class CrudOperationTest extends JpaEntityManagerFactory {
 	
 	@Test
 	@Order(4)
@@ -63,9 +63,10 @@ public class CustomerTest extends JpaEntityManagerFactory {
 		//to be managed state
 		var cu2 = em2.getReference(Customer.class, 1);
 		assertNotNull(cu2);
-		show(cu2);
 		em2.clear();
 		em2.close();
+		show(cu2);
+		
 		
 		
 	}
