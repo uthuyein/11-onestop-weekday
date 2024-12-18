@@ -1,19 +1,13 @@
-package com.jdc.mkt.entity.business_data;
+package com.jdc.mkt.entity.inventory_data;
 
-import java.time.LocalDateTime;
-
-import com.jdc.mkt.entity.customer_data.Customer;
 import com.jdc.mkt.entity.listeners.EnableTimesListener;
 import com.jdc.mkt.entity.listeners.Times;
 
-import jakarta.persistence.AttributeOverride;
-import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -21,20 +15,14 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@Table(name = "rental_tbl")
-public class Rental implements EnableTimesListener {
+@Table(name = "category_tbl")
+public class Category implements EnableTimesListener{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	private String name;
 	
 	@Embedded
-	@AttributeOverride(name = "createTime",column = @Column(name = "rental_date"))
 	private Times times;
-	
-	
-	private LocalDateTime returnTime;
-	
-	@ManyToOne(optional = false)
-	private Customer customer;
 }
