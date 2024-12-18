@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="3.0" xmlns="https://jakarta.ee/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd">
+	<persistence-unit name="film-inventory-proj" transaction-type="RESOURCE_LOCAL">
+		<mapping-file>META-INF/listener_orm.xml</mapping-file>
+		<properties>
+			<property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+			<property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/filmInventoryDb"/>
+			<property name="jakarta.persistence.jdbc.user" value="filmUser"/>
+			<property name="jakarta.persistence.jdbc.password" value="filmPass"/>
+			<property name="jakarta.persistence.schema-generation.database.action" value="drop-and-create"/>
+			<property name="hibernate.show_sql" value="true"/>
+			<property name="hibernate.format_sql" value="true"/>
+			<property name="javax.persistence.sql-load-script-source" value="/sql/*.sql"/>
+		</properties>
+	</persistence-unit>
+</persistence>
