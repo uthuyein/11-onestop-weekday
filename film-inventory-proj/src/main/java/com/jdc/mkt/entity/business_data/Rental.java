@@ -1,13 +1,13 @@
-package com.jdc.mkt.entity.customer_data;
+package com.jdc.mkt.entity.business_data;
 
+import java.time.LocalDateTime;
+
+import com.jdc.mkt.entity.customer_data.Customer;
 import com.jdc.mkt.entity.listeners.EnableTimesListener;
 import com.jdc.mkt.entity.listeners.Times;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -19,20 +19,18 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@Table(name = "city_tbl")
-public class City implements EnableTimesListener {
+@Table(name = "rental_tbl")
+public class Rental implements EnableTimesListener {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	@Column( nullable = false,length = 45)
-	private String name;
-	@Column(nullable = false,columnDefinition = "tinyint(1) default 1")
-	private boolean active;
 	
 	@Embedded
 	private Times times;
 	
-	@ManyToOne(cascade = CascadeType.PERSIST,fetch = FetchType.LAZY)
-	private Country country;
+	private LocalDateTime returnTime;
+	
+	@ManyToOne(optional = false)
+	private Customer customer;
 }

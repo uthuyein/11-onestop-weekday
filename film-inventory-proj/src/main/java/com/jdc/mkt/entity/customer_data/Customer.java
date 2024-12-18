@@ -3,9 +3,11 @@ package com.jdc.mkt.entity.customer_data;
 import com.jdc.mkt.entity.listeners.EnableTimesListener;
 import com.jdc.mkt.entity.listeners.Times;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -37,7 +39,7 @@ public class Customer implements EnableTimesListener {
 	@Embedded
 	private Times times;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.PERSIST,fetch = FetchType.LAZY)
 	private Address address;
 	
 }
