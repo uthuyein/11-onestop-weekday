@@ -6,6 +6,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import com.jdc.mkt.entity.Category;
 import com.jdc.mkt.entity.Product;
+import com.jdc.mkt.listeners.EnableTimesListener;
 
 import jakarta.persistence.EntityManager;
 
@@ -17,6 +18,9 @@ public class F_ListenerTest extends JpaEntityManagerFactory{
 	@CsvSource("4,R7,Beer")
 	@Order(2)
 	void updateTest(int id,String prod,String cat) {
+		
+		EnableTimesListener et = new Category();
+		et.getTimes();
 		em = emf.createEntityManager();
 		em.getTransaction().begin();
 		var c = em.find(Category.class, id);

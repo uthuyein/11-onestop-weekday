@@ -4,13 +4,11 @@ import org.hibernate.annotations.ColumnDefault;
 
 import com.jdc.mkt.listeners.EnableTimesListener;
 import com.jdc.mkt.listeners.Times;
-import com.jdc.mkt.listeners.TimesListener;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EntityListeners;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -28,28 +26,29 @@ import lombok.Setter;
 @NoArgsConstructor
 @RequiredArgsConstructor
 @Table(name = "product_tbl")
-@EntityListeners(TimesListener.class)
-public class Product implements EnableTimesListener{
+//@EntityListeners(TimesListener.class)
+//@ExcludeDefaultListeners
+public class Product implements EnableTimesListener {
 
 	@Id
-	@GeneratedValue( strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	@NonNull
-	@Column(nullable = false,length = 45)
+	@Column(nullable = false, length = 45)
 	private String name;
-	
+
 	@NonNull
 	@Column(nullable = false)
 	private Integer price;
-	
+
 	@Embedded
 	private Times times;
-	
+
 	@ColumnDefault("1")
-	@Column(nullable =  false,columnDefinition = "tinyint(1) ")
+	@Column(nullable = false, columnDefinition = "tinyint(1) ")
 	private boolean isActivated = true;
-	
+
 	@ManyToOne(cascade = CascadeType.PERSIST)
 	private Category category;
 }

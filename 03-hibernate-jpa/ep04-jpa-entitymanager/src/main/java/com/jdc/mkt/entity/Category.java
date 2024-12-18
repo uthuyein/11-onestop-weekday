@@ -7,13 +7,11 @@ import org.hibernate.annotations.ColumnDefault;
 
 import com.jdc.mkt.listeners.EnableTimesListener;
 import com.jdc.mkt.listeners.Times;
-import com.jdc.mkt.listeners.TimesListener;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EntityListeners;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -31,7 +29,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @RequiredArgsConstructor
 @Table(name = "category_tbl")
-@EntityListeners(TimesListener.class)
+//@EntityListeners(TimesListener.class)
 public class Category implements EnableTimesListener{
 
 	@Id
