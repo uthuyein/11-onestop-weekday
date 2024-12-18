@@ -7,6 +7,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
@@ -21,8 +22,7 @@ import lombok.Setter;
 public class Customer implements EnableTimesListener {
 
 	@Id
-	@GeneratedValue(generator = "gen_cus_tbl")
-	@TableGenerator(name = "gen_cus_tbl",initialValue = 1,allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
 	@Column(nullable = false,length = 45)

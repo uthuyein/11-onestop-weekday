@@ -10,7 +10,7 @@
 			<property name="jakarta.persistence.schema-generation.database.action" value="drop-and-create"/>
 			<property name="hibernate.show_sql" value="true"/>
 			<property name="hibernate.format_sql" value="true"/>
-			<property name="javax.persistence.sql-load-script-source" value="/sql/*.sql"/>
+			<property name="javax.persistence.sql-load-script-source" value="/sql/customers.sql,/sql/business.sql,/sql/inventory.sql"/>
 		</properties>
 	</persistence-unit>
 </persistence>
