@@ -11,7 +11,7 @@
   	 <groupId>org.junit.jupiter</groupId>
   	 <artifactId>junit-jupiter</artifactId>
   	 <version>5.11.4</version>
-  	 <scope>runtime</scope>
+  	 <scope>test</scope>
   	</dependency>
   </dependencies>
   <build>
