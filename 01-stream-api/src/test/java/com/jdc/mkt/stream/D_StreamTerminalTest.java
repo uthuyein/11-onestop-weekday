@@ -1,6 +1,7 @@
 package com.jdc.mkt.stream;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.junit.jupiter.api.Test;
 
@@ -9,8 +10,19 @@ public class D_StreamTerminalTest {
 	private List<String> list1 = List.of("9", "10", "4", "5", "4", "", " ", "10", "1", "6", "7", "2", "3", "8");
 	private List<String> list2 = List.of("9", "10", "4");
 
+	
 	@Test
 	void collectTest() {
+		var res = list1.stream()
+				.filter(e -> !e.isBlank())
+				.distinct()
+				.map(e -> Integer.parseInt(e))
+				.collect(Collectors.toList());
+		System.out.println(res);
+	}
+	
+	//@Test
+	void reduceTest() {
 		var res = list1.stream()
 				.filter(e -> !e.isBlank())
 				.mapToInt(i -> Integer.parseInt(i))
@@ -18,6 +30,7 @@ public class D_StreamTerminalTest {
 				.sorted()
 				.reduce((a, b) -> a + b);
 		System.out.println(res);
+		
 	}
 
 	// @Test
@@ -45,7 +58,8 @@ public class D_StreamTerminalTest {
 	// @Test
 	void iterateTest() {
 		// can't sorted in parallel processing with forEach
-		list1.stream().filter(s -> !s.isBlank()).mapToInt(i -> Integer.parseInt(i)).sorted().parallel()
+		list1.stream()
+		.filter(s -> !s.isBlank()).mapToInt(i -> Integer.parseInt(i)).sorted().parallel()
 				.forEachOrdered(s -> System.out.println(s));
 	}
 
