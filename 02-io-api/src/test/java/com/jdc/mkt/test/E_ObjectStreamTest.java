@@ -30,7 +30,7 @@ public class E_ObjectStreamTest {
 		var acc = new Account(1,"user","user");
 		var person = new Person(1,"aaa",23,acc);
 		
-		writeFile(person);
+		writeFile(person);		
 		readFile();
 	}
 
