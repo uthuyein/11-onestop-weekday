@@ -1,4 +1,6 @@
-package com.jdc.mkt.services;
+package com.jdc.mkt.services.static_dynamic;
+
+import com.jdc.mkt.services.JpaFactoryService;
 
 public class StaticQueryWithEmployeeSerivce extends JpaFactoryService{
 

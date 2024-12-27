@@ -5,7 +5,7 @@ import jakarta.persistence.Persistence;
 
 public class JpaFactoryService {
 
-	EntityManagerFactory emf;
+	public EntityManagerFactory emf;
 
 	{
 		emf = Persistence.createEntityManagerFactory("jpa-query");

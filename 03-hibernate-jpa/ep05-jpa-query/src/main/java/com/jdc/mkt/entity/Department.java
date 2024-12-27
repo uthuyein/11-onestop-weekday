@@ -29,6 +29,11 @@ public class Department {
 	
 	@OneToMany(mappedBy = "department",cascade = CascadeType.PERSIST)
 	private List<Employee> employees;
+	
+	@Override
+	public String toString() {
+		return name;
+	}
 }
 
 

@@ -7,8 +7,8 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import com.jdc.mkt.services.DynamicQueryEmployeeService;
-import com.jdc.mkt.services.StaticQueryWithEmployeeSerivce;
+import com.jdc.mkt.services.static_dynamic.DynamicQueryEmployeeService;
+import com.jdc.mkt.services.static_dynamic.StaticQueryWithEmployeeSerivce;
 
 public class EmployeeTest {
 

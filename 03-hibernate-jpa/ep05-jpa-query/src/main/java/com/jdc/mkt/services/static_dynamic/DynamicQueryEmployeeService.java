@@ -1,9 +1,10 @@
-package com.jdc.mkt.services;
+package com.jdc.mkt.services.static_dynamic;
 
 import java.util.List;
 
 import com.jdc.mkt.entity.Employee;
 import com.jdc.mkt.entity.Employee_;
+import com.jdc.mkt.services.JpaFactoryService;
 
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
