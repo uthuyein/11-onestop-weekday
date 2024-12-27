@@ -10,10 +10,23 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.NamedNativeQuery;
+import jakarta.persistence.NamedQuery;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "employee_tbl")
+@NamedQuery(
+		name = "findCountByDepartmentName",
+		query = "select count(e) from Employee e where e.department.name = :department")
+
+@NamedNativeQuery(name = "findCountByDepartmentNameSql",
+				query = """
+						select count(*) from employee_tbl e
+						join department_tbl d on e.department_id = d.id 
+						where d.name = ?
+						""" ,
+				resultClass = Long.class)
 public class Employee {
 
 	@Id

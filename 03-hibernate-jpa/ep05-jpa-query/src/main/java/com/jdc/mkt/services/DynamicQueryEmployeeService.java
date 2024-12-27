@@ -8,13 +8,7 @@ import com.jdc.mkt.entity.Employee_;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
-public class EmployeeService {
-
-	private EntityManagerFactory emf;
-	
-	public EmployeeService() {
-		emf = Persistence.createEntityManagerFactory("jpa-query");
-	}
+public class DynamicQueryEmployeeService extends JpaFactoryService{
 	
 	public List<Employee> findByNameLikeWithJpql(String name){
 		var em = emf.createEntityManager();
