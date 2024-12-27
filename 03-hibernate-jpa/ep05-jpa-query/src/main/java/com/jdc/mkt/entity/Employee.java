@@ -31,4 +31,9 @@ public class Employee {
 	
 	@ManyToOne
 	private Department department;
+	
+	@Override
+	public String toString() {
+		return name;
+	}
 }
