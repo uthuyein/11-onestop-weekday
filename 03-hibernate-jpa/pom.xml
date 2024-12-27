@@ -52,5 +52,6 @@
 		<module>ep02-jpa-relations-mapping</module>
 		<module>ep03-jpa-inheritance-mapping</module>
 		<module>ep04-jpa-entitymanager</module>
+		<module>ep05-jpa-query</module>
 	</modules>
 </project>
